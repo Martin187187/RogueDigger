@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://g56n4sbj8ai5"]
+
+[ext_resource type="Script" uid="uid://cilfhj0k8xowb" path="res://MarchingTerrain.gd" id="1_kdh3y"]
+
+[node name="Chunk" type="StaticBody2D"]
+script = ExtResource("1_kdh3y")
+num_voxels = 50
+size = 800.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

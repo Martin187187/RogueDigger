@@ -28,6 +28,6 @@ texture = ExtResource("2_2dftf")
 [node name="ChunkManager" type="Node2D" parent="."]
 script = ExtResource("4_js7pq")
 chunk_scene = ExtResource("1_bcbcq")
-chunk_size = 150.0
+chunk_size = 100.0
 num_voxels = 32
 num_chunks = 9

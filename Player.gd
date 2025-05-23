@@ -22,5 +22,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("dig") and event is InputEventMouseButton:
-		terrain.dig_circle(position, 50.0)  # Adjust radius if needed
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		# 1. Get mouse world position
+		var mouse_pos := get_global_mouse_position()
+
+		# 2. Calculate direction from player to mouse
+		var dir := (mouse_pos - global_position).normalized()
+
+		# 3. Clamp distance to 20 pixels from player
+		var dig_pos := global_position + dir * 20.0
+
+		# 4. Call dig at that position with some radius and strength
+		terrain.dig_at_global(dig_pos, 40.0)  # radius = 6px, strength = 1.0
